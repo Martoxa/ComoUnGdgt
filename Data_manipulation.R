@@ -1,4 +1,3 @@
-na.Zero<-function(raw){raw[is.na(raw)]<-0}
 FracA<-function(raw,out="all",coerce=FALSE){
   GDGTn<-c("GDGT0","GDGT1","GDGT2","GDGT3","Crena","Crenp","IIIa5","IIIa6","IIIb5","IIIb6","IIIc5","IIIc6","IIa5","IIa6","IIb5","IIb6","IIc5","IIc6","Ia","Ib","Ic")
   if(coerce==TRUE){
@@ -6,6 +5,7 @@ FracA<-function(raw,out="all",coerce=FALSE){
     nullGDGT<-data.frame(matrix(0,ncol = length(noGDGT),nrow=dim(raw)[1]))
     colnames(nullGDGT)<-noGDGT
     raw<-cbind(raw,nullGDGT)
+    message(paste("Coerced ",paste(noGDGT,collapse = " ")))
   }
   if(out=="both"){
     out<-raw[,na.omit(match(GDGTn,colnames(raw)))]/apply(raw[,na.omit(match(GDGTn,colnames(raw)))],1,sum)

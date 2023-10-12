@@ -1,42 +1,107 @@
-MBT5<-function(raw){
-  (raw$Ia+raw$Ib+raw$Ic)/(raw$Ia+raw$Ib+raw$Ic+raw$IIa5+raw$IIb5+raw$IIc5+raw$IIIa5)
+##brGDGTs only
+
+MBT5<-function(fa,complete=TRUE,na.ignore=FALSE){
+  if(na.ignore==TRUE){fa[is.na(fa)]<-0}
+  formula<-"( fa$Ia + fa$Ib + fa$Ic )/( fa$Ia + fa$Ib + fa$Ic + fa$IIa5 + fa$IIb5 + fa$IIc5 + fa$IIIa5 )"
+  if(complete==TRUE){if(NA %in% match(correctGs(formula),colnames(fa))){stop("Missing variables")}}
+  if(complete==FALSE){formula<-partialEq(fa,formula)}
+  eval(parse(text = formula))
 } #checked Baxter et al., 2023
 
-MBT6<-function(raw){
-  (raw$Ia+raw$Ib+raw$Ic)/(raw$Ia+raw$Ib+raw$Ic+raw$IIa6+raw$IIb6+raw$IIIa6)
+MBT6<-function(fa,complete=TRUE,na.ignore=FALSE){
+  if(na.ignore==TRUE){fa[is.na(fa)]<-0}
+  formula<-"( fa$Ia + fa$Ib + fa$Ic )/( fa$Ia + fa$Ib + fa$Ic + fa$IIa6 + fa$IIb6 + fa$IIIa6 )"
+  if(complete==TRUE){if(NA %in% match(correctGs(formula),colnames(fa))){stop("Missing variables")}}
+  if(complete==FALSE){formula<-partialEq(fa,formula)}
+  eval(parse(text = formula))
 }
 
-fC<-function(raw){
-  ((raw$IIb5+raw$Ib+raw$IIb6)+2*(raw$Ic))/((raw$IIIa5+raw$IIIa6+raw$IIa5+raw$IIa6+raw$Ia)+(raw$IIb5+raw$Ib+raw$IIb6)+(raw$Ic))*0.5
+fC<-function(fa,complete=TRUE,na.ignore=FALSE){
+  if(na.ignore==TRUE){fa[is.na(fa)]<-0}
+  formula<-"(( fa$IIb5 + fa$Ib + fa$IIb6 )+2*( fa$Ic ))/(( fa$IIIa5 + fa$IIIa6 + fa$IIa5 + fa$IIa6 + fa$Ia )+( fa$IIb5 + fa$Ib + fa$IIb6 )+( fa$Ic ))*0.5"
+  if(complete==TRUE){if(NA %in% match(correctGs(formula),colnames(fa))){stop("Missing variables")}}
+  if(complete==FALSE){formula<-partialEq(fa,formula)}
+  eval(parse(text = formula))
 }
-CBTp<-function(raw){
-  log10((raw$Ic+raw$IIa6+raw$IIb6+raw$IIc6+raw$IIIa6+raw$IIIb6+raw$IIIc6)/(raw$Ia+raw$IIa5+raw$IIIa5))
+CBTp<-function(fa,complete=TRUE,na.ignore=FALSE){
+  if(na.ignore==TRUE){fa[is.na(fa)]<-0}
+  formula<-"log10(( fa$Ic + fa$IIa6 + fa$IIb6 + fa$IIc6 + fa$IIIa6 + fa$IIIb6 + fa$IIIc6 )/( fa$Ia + fa$IIa5 + fa$IIIa5 ))"
+  if(complete==TRUE){if(NA %in% match(correctGs(formula),colnames(fa))){stop("Missing variables")}}
+  if(complete==FALSE){formula<-partialEq(fa,formula)}
+  out<-eval(parse(text = formula))
+  out[-10000 > out]<-NA
+  out[out>10000]<-NA
+  out
+}
+IR<-function(fa,complete=TRUE,na.ignore=FALSE){
+  if(na.ignore==TRUE){fa[is.na(fa)]<-0}
+  formula<-"( fa$IIa6 + fa$IIb6 + fa$IIIa6 )/( fa$IIa5 + fa$IIb5 + fa$IIIa5 + fa$IIa6 + fa$IIb6 + fa$IIIa6 )"
+  if(complete==TRUE){if(NA %in% match(correctGs(formula),colnames(fa))){stop("Missing variables")}}
+  if(complete==FALSE){formula<-partialEq(fa,formula)}
+  eval(parse(text = formula))
+}
+IBT<-function(fa,complete=TRUE,na.ignore=FALSE){
+  if(na.ignore==TRUE){fa[is.na(fa)]<-0}
+  formula<-"-log10(( fa$IIa6 + fa$IIIa6 )/( fa$IIa5 + fa$IIIa5 ))"
+  if(complete==TRUE){if(NA %in% match(correctGs(formula),colnames(fa))){stop("Missing variables")}}
+  if(complete==FALSE){formula<-partialEq(fa,formula)}
+  out<-eval(parse(text = formula))
+  out[-10000 > out]<-NA
+  out[out>10000]<-NA
+  out
+}
+CI<-function(fa,complete=TRUE,na.ignore=FALSE){
+  if(na.ignore==TRUE){fa[is.na(fa)]<-0}
+  formula<-"( fa$Ia + fa$Ib )/( fa$Ia + fa$IIa5 + fa$IIIa5 + fa$IIIa6 )"
+  if(complete==TRUE){if(NA %in% match(correctGs(formula),colnames(fa))){stop("Missing variables")}}
+  if(complete==FALSE){formula<-partialEq(fa,formula)}
+  eval(parse(text = formula))
+}
+RI<-function(fa,complete=TRUE,na.ignore=FALSE){
+  if(na.ignore==TRUE){fa[is.na(fa)]<-0}
+  formula<-"( fa$Ib + 2*( fa$Ic ))/( fa$Ia + fa$Ib + fa$Ic )"
+  if(complete==TRUE){if(NA %in% match(correctGs(formula),colnames(fa))){stop("Missing variables")}}
+  if(complete==FALSE){formula<-partialEq(fa,formula)}
+  eval(parse(text = formula))
 }
 
-IR<-function(raw){
-  (raw$IIa6+raw$IIb6+raw$IIIa6)/(raw$IIa5+raw$IIb5+raw$IIIa5+raw$IIa6+raw$IIb6+raw$IIIa6)
+## isoGDGTs only
+TEX86<-function(fa,complete=TRUE,na.ignore=FALSE){
+  if(na.ignore==TRUE){fa[is.na(fa)]<-0}
+  formula<-"( fa$GDGT2 + fa$GDGT3 + fa$Crenp )/( fa$GDGT1 + fa$GDGT2 + fa$GDGT3 + fa$Crenp )"
+  if(complete==TRUE){if(NA %in% match(correctGs(formula),colnames(fa))){stop("Missing variables")}}
+  if(complete==FALSE){formula<-partialEq(fa,formula)}
+  eval(parse(text = formula))
 }
-IBT<-function(raw){
-  -log10((raw$IIa6+raw$IIIa6)/(raw$IIa5+raw$IIIa5))
+MI<-function(fa,complete=TRUE,na.ignore=FALSE){
+  if(na.ignore==TRUE){fa[is.na(fa)]<-0}
+  formula<-"( fa$GDGT1 + fa$GDGT2 + fa$GDGT3 )/( fa$GDGT1 + fa$GDGT2 + fa$GDGT3 + fa$Crena + fa$Crenp )"
+  if(complete==TRUE){if(NA %in% match(correctGs(formula),colnames(fa))){stop("Missing variables")}}
+  if(complete==FALSE){formula<-partialEq(fa,formula)}
+  eval(parse(text = formula))
 }
-CI<-function(raw){
-  (raw$Ia+raw$Ib)/(raw$Ia+raw$IIa5+raw$IIIa5+raw$IIIa6)
-}
-TEX86<-function(raw){
-  (raw$GDGT2+raw$GDGT3+raw$Crenp)/(raw$GDGT1+raw$GDGT2+raw$GDGT3+raw$Crenp)
-}
-BIT<-function(raw,na.ignore=FALSE){
-  if(na.ignore==TRUE){raw[is.na(raw)]<-0}
-  (raw$Ia+raw$IIa5+raw$IIa6+raw$IIIa5+raw$IIIa6)/(raw$Ia+raw$IIa5+raw$IIa6+raw$IIIa5+raw$IIIa6+raw$Crena)
-}  #checked Baxter et al., 2023
-
-MI<-function(raw){
-  (raw$GDGT1 + raw$GDGT2 + raw$GDGT3)/(raw$GDGT1 + raw$GDGT2 + raw$GDGT3 + raw$Crena + raw$Crenp)
-}
-RI<-function(raw){
-  (raw$Ib+2*(raw$Ic))/(raw$Ia+raw$Ib+raw$Ic)
-}
-
-pGDGT0<-function(raw){
-  raw$GDGT0/(raw$GDGT0+raw$Crena)
+pGDGT0<-function(fa,complete=TRUE,na.ignore=FALSE){
+  formula<-"fa$GDGT0 /( fa$GDGT0 + fa$Crena )"
+  if(complete==TRUE){if(NA %in% match(correctGs(formula),colnames(fa))){stop("Missing variables")}}
+  if(complete==FALSE){formula<-partialEq(fa,formula)}
+  eval(parse(text = formula))
 } #Checked Zander, et al. in prep
+G2G3<-function(fa,complete=TRUE,na.ignore=FALSE){
+  if(na.ignore==TRUE){fa[is.na(fa)]<-0}
+  formula<-"fa$GDGT2 / fa$GDGT3"
+  if(complete==TRUE){if(NA %in% match(correctGs(formula),colnames(fa))){stop("Missing variables")}}
+  if(complete==FALSE){formula<-partialEq(fa,formula)}
+  out<-eval(parse(text = formula))
+  out[out>10000]<-NA
+  out[is.nan(out)]<-NA
+  out
+}
+
+## br and isoGDGTs
+BIT<-function(fa,complete=TRUE,na.ignore=FALSE){
+  if(na.ignore==TRUE){fa[is.na(fa)]<-0}
+  formula<-"( fa$Ia + fa$IIa5 + fa$IIa6 + fa$IIIa5 + fa$IIIa6 )/( fa$Ia + fa$IIa5 + fa$IIa6 + fa$IIIa5 + fa$IIIa6 + fa$Crena )"
+  if(complete==TRUE){if(NA %in% match(correctGs(formula),colnames(fa))){stop("Missing variables")}}
+  if(complete==FALSE){formula<-partialEq(fa,formula)}
+  eval(parse(text = formula))
+}  #checked Baxter et al., 2023
