@@ -10,7 +10,7 @@ MBT5<-function(raw,complete=TRUE,data="area",na.ignore=FALSE){
   eval(parse(text = formula))
 } #checked Baxter et al., 2023
 
-MBT6<-function(fa,complete=TRUE,data="area",na.ignore=FALSE){
+MBT6<-function(raw,complete=TRUE,data="area",na.ignore=FALSE){
   if(data=="area"){fa<-FracA(raw)
   } else if (data == "fa"){fa<-raw}
   if(na.ignore==TRUE){fa[is.na(fa)]<-0}
@@ -20,7 +20,7 @@ MBT6<-function(fa,complete=TRUE,data="area",na.ignore=FALSE){
   eval(parse(text = formula))
 }
 
-fC<-function(fa,complete=TRUE,data="area",na.ignore=FALSE){
+fC<-function(raw,complete=TRUE,data="area",na.ignore=FALSE){
   if(data=="area"){fa<-FracA(raw)
   } else if (data == "fa"){fa<-raw}
   if(na.ignore==TRUE){fa[is.na(fa)]<-0}
@@ -29,7 +29,7 @@ fC<-function(fa,complete=TRUE,data="area",na.ignore=FALSE){
   if(complete==FALSE){formula<-partialEq(fa,formula)}
   eval(parse(text = formula))
 }
-CBTp<-function(fa,complete=TRUE,data="area",na.ignore=FALSE){
+CBTp<-function(raw,complete=TRUE,data="area",na.ignore=FALSE){
   if(data=="area"){fa<-FracA(raw)
   } else if (data == "fa"){fa<-raw}
   if(na.ignore==TRUE){fa[is.na(fa)]<-0}
@@ -41,7 +41,7 @@ CBTp<-function(fa,complete=TRUE,data="area",na.ignore=FALSE){
   out[out>10000]<-NA
   out
 }
-IR<-function(fa,complete=TRUE,data="area",na.ignore=FALSE){
+IR<-function(raw,complete=TRUE,data="area",na.ignore=FALSE){
   if(data=="area"){fa<-FracA(raw)
   } else if (data == "fa"){fa<-raw}
   if(na.ignore==TRUE){fa[is.na(fa)]<-0}
@@ -50,7 +50,7 @@ IR<-function(fa,complete=TRUE,data="area",na.ignore=FALSE){
   if(complete==FALSE){formula<-partialEq(fa,formula)}
   eval(parse(text = formula))
 }
-IBT<-function(fa,complete=TRUE,data="area",na.ignore=FALSE){
+IBT<-function(raw,complete=TRUE,data="area",na.ignore=FALSE){
   if(data=="area"){fa<-FracA(raw)
   } else if (data == "fa"){fa<-raw}
   if(na.ignore==TRUE){fa[is.na(fa)]<-0}
@@ -62,7 +62,7 @@ IBT<-function(fa,complete=TRUE,data="area",na.ignore=FALSE){
   out[out>10000]<-NA
   out
 }
-CI<-function(fa,complete=TRUE,data="area",na.ignore=FALSE){
+CI<-function(raw,complete=TRUE,data="area",na.ignore=FALSE){
   if(data=="area"){fa<-FracA(raw)
   } else if (data == "fa"){fa<-raw}
   if(na.ignore==TRUE){fa[is.na(fa)]<-0}
@@ -71,7 +71,7 @@ CI<-function(fa,complete=TRUE,data="area",na.ignore=FALSE){
   if(complete==FALSE){formula<-partialEq(fa,formula)}
   eval(parse(text = formula))
 }
-RI<-function(fa,complete=TRUE,data="area",na.ignore=FALSE){
+RI<-function(raw,complete=TRUE,data="area",na.ignore=FALSE){
   if(data=="area"){fa<-FracA(raw)
   } else if (data == "fa"){fa<-raw}
   if(na.ignore==TRUE){fa[is.na(fa)]<-0}
@@ -82,7 +82,7 @@ RI<-function(fa,complete=TRUE,data="area",na.ignore=FALSE){
 }
 
 ## isoGDGTs only
-TEX86<-function(fa,complete=TRUE,data="area",na.ignore=FALSE){
+TEX86<-function(raw,complete=TRUE,data="area",na.ignore=FALSE){
   if(data=="area"){fa<-FracA(raw)
   } else if (data == "fa"){fa<-raw}
   if(na.ignore==TRUE){fa[is.na(fa)]<-0}
@@ -91,7 +91,7 @@ TEX86<-function(fa,complete=TRUE,data="area",na.ignore=FALSE){
   if(complete==FALSE){formula<-partialEq(fa,formula)}
   eval(parse(text = formula))
 }
-MI<-function(fa,complete=TRUE,data="area",na.ignore=FALSE){
+MI<-function(raw,complete=TRUE,data="area",na.ignore=FALSE){
   if(data=="area"){fa<-FracA(raw)
   } else if (data == "fa"){fa<-raw}
   if(na.ignore==TRUE){fa[is.na(fa)]<-0}
@@ -100,7 +100,7 @@ MI<-function(fa,complete=TRUE,data="area",na.ignore=FALSE){
   if(complete==FALSE){formula<-partialEq(fa,formula)}
   eval(parse(text = formula))
 }
-pGDGT0<-function(fa,complete=TRUE,data="area",na.ignore=FALSE){
+pGDGT0<-function(raw,complete=TRUE,data="area",na.ignore=FALSE){
   if(data=="area"){fa<-FracA(raw)
   } else if (data == "fa"){fa<-raw}
   if(na.ignore==TRUE){fa[is.na(fa)]<-0}
@@ -109,7 +109,7 @@ pGDGT0<-function(fa,complete=TRUE,data="area",na.ignore=FALSE){
   if(complete==FALSE){formula<-partialEq(fa,formula)}
   eval(parse(text = formula))
 } #Checked Zander, et al. in prep
-G2G3<-function(fa,complete=TRUE,data="area",na.ignore=FALSE){
+G2G3<-function(raw,complete=TRUE,data="area",na.ignore=FALSE){
   if(data=="area"){fa<-FracA(raw)
   } else if (data == "fa"){fa<-raw}
   if(na.ignore==TRUE){fa[is.na(fa)]<-0}
@@ -123,7 +123,7 @@ G2G3<-function(fa,complete=TRUE,data="area",na.ignore=FALSE){
 }
 
 ## br and isoGDGTs
-BIT<-function(fa,complete=TRUE,data="area",na.ignore=FALSE){
+BIT<-function(raw,complete=TRUE,data="area",na.ignore=FALSE){
   if(data=="area"){fa<-FracA(raw)
   } else if (data == "fa"){fa<-raw}
   if(na.ignore==TRUE){fa[is.na(fa)]<-0}
