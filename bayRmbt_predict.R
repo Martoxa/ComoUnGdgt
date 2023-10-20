@@ -3,7 +3,7 @@ bayrmbt_predict<-function(raw,prior_mean,prior_std,Tmodel,Type,data="area",compl
 # BAYMBT prediction model for MBT5Me measured in soils and peats.
 # Predicts Mean annual air temperature or mean temperatures above zero.
 # ----- Inputs -----
-# raw: A matrix of HPLC-MS peak area values  (15 x N) or (N x 15) if data="area (default), or a scalar or vector of MBT'5Me values (1 x N) or (N x 1). 
+# raw: A matrix of HPLC-MS peak area values  (15 x N) or (N x 15) if data="area" (default), or a scalar or vector of MBT'5Me values (1 x N) or (N x 1). 
 #
 # prior_mean: A scalar prior mean value of T in degrees C.
 #
@@ -41,12 +41,12 @@ bayrmbt_predict<-function(raw,prior_mean,prior_std,Tmodel,Type,data="area",compl
 #
 # For soils:
 # Dearing Crampton-Flood, E., Tierney, J. E., Peterse, F., Kirkels, F. M.,
-# & Sinninghe Damsté, J. S. (2020). BayMBT: A Bayesian calibration model
+# & Sinninghe Damst?, J. S. (2020). BayMBT: A Bayesian calibration model
 # for branched glycerol dialkyl glycerol tetraethers in soils and peats.
 # Geochimica et Cosmochimica Acta, 268, 142-159.
 #
 # For lakes:
-# Martínez-Sosa, P., Tierney, J. E., Stefanescu, I. C., Dearing
+# Mart?nez-Sosa, P., Tierney, J. E., Stefanescu, I. C., Dearing
 # Crampton-Flood, E., Shuman, B. N., Routson, C. (2021) A global Bayesian
 # temperature calibration for lacustrine brGDGTs. 
 #Geochimica et Cosmochimica Acta, 305, 87-105.

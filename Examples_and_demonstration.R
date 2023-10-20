@@ -5,6 +5,9 @@ source("Calibrations.R")
 source("bayRmbt_model.R")
 source("bayRmbt_forward.R")
 source("bayRmbt_predict.R")
+source("bayspR_tex.R")
+source("bayspR_tex_analog.R")
+source("RthChordDistances.R")
 
 ## Data Manipulation
 
@@ -25,7 +28,7 @@ BrFAMissing<-BrFractionalAbundances[,1:14] #Remove Ic from the dataset
 CBTp(BrFAMissing,data = "fa") #Again, CBT' won't be calculated unless all compounds are present by default
 CBTp(BrFAMissing,data = "fa",complete=FALSE) #complete=FALSE will calculate it with missing data
 
-## Calibrations
+## Calibrations brGDGTs
 
 #Linear calibrations
 
@@ -35,3 +38,10 @@ DeJongepH<-linearCalib(BrFAMissing,env="pH",calibration = "DeJonge",data = "fa",
 #Other calibrations
 
 MartinezMAF<-bayrmbt_predict(dataArea,10,10,Tmodel = "T0",Type="lake") #Other types of calibrations can be adapted too. BayMBT now runs directly from peak areas.
+
+## Calibrations isoGDGTs
+
+#BAYSPAR
+Marine<-dataArea[dataArea$Type=="M",]
+Marine<-Marine[5:9,] #Just a handful samples from a similar area
+TierneyBayspar<-bayspR_tex(Marine,mean(Marine$Longitude),mean(Marine$Latitude),mean(Marine$MAAT),"SST")
