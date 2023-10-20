@@ -1,4 +1,9 @@
-bayspR_tex_analog<-function(dats,prior_mean,prior_std,search_tol,runname,varargin=1000){
+bayspR_tex_analog<-function(raw,prior_mean,prior_std,search_tol,runname,varargin=1000,data="area",complete=TRUE){
+  
+  if(data=="area"){dats<-TEX86(raw,complete=complete,data=data)
+  } else if (data=="fa"){dats<-TEX86(raw,complete=complete,data=data)
+  } else if (data=="tex"){dats<-raw}
+  
   if(length(varargin)>2){stop("varargin accepts no more than two arguments")
   } else if(length(varargin)==2){
     Nsamps<-varargin[1]

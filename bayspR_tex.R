@@ -1,5 +1,10 @@
-bayspR_tex<-function(dats,lon,lat,prior_std,runname,varargin=1000){
-    if(length(varargin)>2){stop("varargin accepts no more than two arguments")
+bayspR_tex<-function(raw,lon,lat,prior_std,runname,varargin=1000,data="area",complete=TRUE){
+  
+  if(data=="area"){dats<-TEX86(raw,complete=complete,data=data)
+  } else if (data=="fa"){dats<-TEX86(raw,complete=complete,data=data)
+  } else if (data=="tex"){dats<-raw}
+  
+  if(length(varargin)>2){stop("varargin accepts no more than two arguments")
   } else if(length(varargin)==2){
     Nsamps<-varargin[1]
     ens_sel<-varargin[2]
