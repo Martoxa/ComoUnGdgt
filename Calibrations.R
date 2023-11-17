@@ -19,11 +19,11 @@ Calibrations<-list(Temperature=Temperature,pH=pH)
 
 ## Aplication
 
-linearCalib<-function(raw,env,calibration,data="area",out="all",coerce=FALSE,complete=TRUE){
-  if(data=="area"){fa<-FracA(raw,out=out,coerce=coerce)
+linearCalib<-function(raw,env,calibration,data="area",out="all",na.ignore=FALSE,coerce=FALSE,complete=TRUE){
+  if(data=="area"){fa<-FracA(raw,out=out,na.ignore=na.ignore,coerce=coerce)
   } else if (data == "fa"){fa<-raw}
-  if(env=="Temperature"){prediction<-as.function(Calibrations[[env]][[calibration]])(MBT5(fa,data="fa",complete = complete))
-  } else if(env=="pH"){prediction<-as.function(Calibrations[[env]][[calibration]])(CBTp(fa,data="fa",complete = complete))
+  if(env=="Temperature"){prediction<-as.function(Calibrations[[env]][[calibration]])(MBT5(fa,data="fa",complete = complete,na.ignore=na.ignore))
+  } else if(env=="pH"){prediction<-as.function(Calibrations[[env]][[calibration]])(CBTp(fa,data="fa",complete = complete,na.ignore=na.ignore))
   } else stop("Select one of the available environmental parameters: Temperature or pH")
   prediction
 }

@@ -1,4 +1,4 @@
-bayspR_tex<-function(raw,lon,lat,prior_std,runname,varargin=1000,data="area",complete=TRUE){
+bayspR_tex<-function(raw,lon,lat,prior_std,runname,varargin=1000,data="area",complete=TRUE,na.ignore=FALSE){
 #
 # INPUTS:
 # raw      - a matrix of HPLC-MS peak area values  (6 x N) or (N x 6) 
@@ -54,8 +54,8 @@ bayspR_tex<-function(raw,lon,lat,prior_std,runname,varargin=1000,data="area",com
 
   #Deal with the input parameters and decide how to handle the input data
   
-  if(data=="area"){dats<-TEX86(raw,complete=complete,data=data)
-  } else if (data=="fa"){dats<-TEX86(raw,complete=complete,data=data)
+  if(data=="area"){dats<-TEX86(raw,complete=complete,data=data, na.ignore = na.ignore)
+  } else if (data=="fa"){dats<-TEX86(raw,complete=complete,data=data, na.ignore = na.ignore)
   } else if (data=="tex"){dats<-raw}
   
   if(length(varargin)>2){stop("varargin accepts no more than two arguments")

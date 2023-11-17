@@ -1,4 +1,4 @@
-bayrmbt_predict<-function(raw,prior_mean,prior_std,Tmodel,Type,data="area",complete=TRUE){
+bayrmbt_predict<-function(raw,prior_mean,prior_std,Tmodel,Type,data="area",complete=TRUE,na.ignore=FALSE){
 
 # BAYMBT prediction model for MBT5Me measured in soils and peats.
 # Predicts Mean annual air temperature or mean temperatures above zero.
@@ -24,7 +24,9 @@ bayrmbt_predict<-function(raw,prior_mean,prior_std,Tmodel,Type,data="area",compl
   
 # complete: Determines how is MBT'5Me calculated
 # TRUE = Calculated exactly as per De Jonge, et al., 2014 (default option)
-# FALSE = Omits missing compounds. A warning is generated and the ommitted compounds are shown.
+# FALSE = Omits missing compounds. A warning is generated and the ommitted compounds are shown
+#  
+# na.ignore: Logical value, if TRUE NAs in the dataset are converted to 0s
 #  
 # Example: bayRmbt_predict(mbt5me,10,10,Tmodel="T0",Type="lake",data="area",complete=TRUE) 
 #
@@ -53,8 +55,8 @@ bayrmbt_predict<-function(raw,prior_mean,prior_std,Tmodel,Type,data="area",compl
 #  
 
   #adjust data type
-  if(data=="area"){mbt5me<-MBT5(raw,complete=complete,data=data)
-  } else if (data=="fa"){mbt5me<-MBT5(raw,complete=complete,data=data)
+  if(data=="area"){mbt5me<-MBT5(raw,complete=complete,data=data, na.ignore = na.ignore)
+  } else if (data=="fa"){mbt5me<-MBT5(raw,complete=complete,data=data, na.ignore = na.ignore)
   } else if (data=="mbt5"){mbt5me<-raw}
   #ensure vector
   if(is.vector(mbt5me) == FALSE){mbt5me<-as.vector(mbt5me)}
