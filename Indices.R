@@ -86,7 +86,7 @@ TEX86<-function(raw,complete=TRUE,data="area",out="all",na.ignore=FALSE){
   if(data=="area"){fa<-FracA(raw,out=out,na.ignore = na.ignore)
   } else if (data == "fa"){fa<-raw}
   if(na.ignore==TRUE){fa[is.na(fa)]<-0}
-  formula<-"( fa$GDGT2 + fa$GDGT3 + fa$Crenp )/( fa$GDGT1 + fa$GDGT2 + fa$GDGT3 + fa$Crenp )"
+  formula<-"( fa$GDGT2 + fa$GDGT3 + fa$Creni )/( fa$GDGT1 + fa$GDGT2 + fa$GDGT3 + fa$Creni )"
   if(complete==TRUE){if(NA %in% match(correctGs(formula),colnames(fa))){stop("Missing variables")}}
   if(complete==FALSE){formula<-partialEq(fa,formula)}
   eval(parse(text = formula))
@@ -95,7 +95,7 @@ MI<-function(raw,complete=TRUE,data="area",out="all",na.ignore=FALSE){
   if(data=="area"){fa<-FracA(raw,out=out,na.ignore = na.ignore)
   } else if (data == "fa"){fa<-raw}
   if(na.ignore==TRUE){fa[is.na(fa)]<-0}
-  formula<-"( fa$GDGT1 + fa$GDGT2 + fa$GDGT3 )/( fa$GDGT1 + fa$GDGT2 + fa$GDGT3 + fa$Crena + fa$Crenp )"
+  formula<-"( fa$GDGT1 + fa$GDGT2 + fa$GDGT3 )/( fa$GDGT1 + fa$GDGT2 + fa$GDGT3 + fa$Cren + fa$Creni )"
   if(complete==TRUE){if(NA %in% match(correctGs(formula),colnames(fa))){stop("Missing variables")}}
   if(complete==FALSE){formula<-partialEq(fa,formula)}
   eval(parse(text = formula))
@@ -104,7 +104,7 @@ pGDGT0<-function(raw,complete=TRUE,data="area",out="all",na.ignore=FALSE){
   if(data=="area"){fa<-FracA(raw,out=out,na.ignore = na.ignore)
   } else if (data == "fa"){fa<-raw}
   if(na.ignore==TRUE){fa[is.na(fa)]<-0}
-  formula<-"fa$GDGT0 /( fa$GDGT0 + fa$Crena )"
+  formula<-"fa$GDGT0 /( fa$GDGT0 + fa$Cren )"
   if(complete==TRUE){if(NA %in% match(correctGs(formula),colnames(fa))){stop("Missing variables")}}
   if(complete==FALSE){formula<-partialEq(fa,formula)}
   eval(parse(text = formula))
@@ -127,7 +127,7 @@ BIT<-function(raw,complete=TRUE,data="area",out="all",na.ignore=FALSE){
   if(data=="area"){fa<-FracA(raw,out=out,na.ignore = na.ignore)
   } else if (data == "fa"){fa<-raw}
   if(na.ignore==TRUE){fa[is.na(fa)]<-0}
-  formula<-"( fa$Ia + fa$IIa5 + fa$IIa6 + fa$IIIa5 + fa$IIIa6 )/( fa$Ia + fa$IIa5 + fa$IIa6 + fa$IIIa5 + fa$IIIa6 + fa$Crena )"
+  formula<-"( fa$Ia + fa$IIa5 + fa$IIa6 + fa$IIIa5 + fa$IIIa6 )/( fa$Ia + fa$IIa5 + fa$IIa6 + fa$IIIa5 + fa$IIIa6 + fa$Cren )"
   if(complete==TRUE){if(NA %in% match(correctGs(formula),colnames(fa))){stop("Missing variables")}}
   if(complete==FALSE){formula<-partialEq(fa,formula)}
   eval(parse(text = formula))

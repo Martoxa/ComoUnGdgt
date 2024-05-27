@@ -1,5 +1,5 @@
 FracA<-function(raw,out="all",coerce=FALSE,na.ignore=FALSE){
-  GDGTn<-c("GDGT0","GDGT1","GDGT2","GDGT3","Crena","Crenp","IIIa5","IIIa6","IIIb5","IIIb6","IIIc5","IIIc6","IIa5","IIa6","IIb5","IIb6","IIc5","IIc6","Ia","Ib","Ic")
+  GDGTn<-c("GDGT0","GDGT1","GDGT2","GDGT3","Cren","Creni","IIIa5","IIIa6","IIIb5","IIIb6","IIIc5","IIIc6","IIa5","IIa6","IIb5","IIb6","IIc5","IIc6","Ia","Ib","Ic")
   if(na.ignore==TRUE){raw[is.na(raw)]<-0}
   if(coerce==TRUE){
     noGDGT<-GDGTn[is.na(match(GDGTn,colnames(raw)))]
