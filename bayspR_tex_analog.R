@@ -1,4 +1,4 @@
-bayspR_tex_analog<-function(raw,prior_mean,prior_std,search_tol,runname,varargin=1000,data="area",complete=TRUE){
+bayspR_tex_analog<-function(raw,prior_mean,prior_std,search_tol,runname,varargin=1000,data="raw",complete=TRUE){
 #
 # INPUTS:
 # raw      - a matrix of HPLC-MS peak area values  (6 x N) or (N x 6) 
@@ -24,8 +24,7 @@ bayspR_tex_analog<-function(raw,prior_mean,prior_std,search_tol,runname,varargin
 # 1: save the whole ensemble as well. 
 #
 # data: A string corresponding the type of data to run in the model.
-# "area" = Peak areas for each isoGDGT (default option)
-# "fa" = Fractional abundance of each isoGDGT
+# "raw" = Peak areas or Fractional Abundances for each isoGDGT (default option)
 # "tex" = Calculated TEX86 values  
 # complete: Determines how is TEX86 calculated
 # TRUE = Calculated exactly as per Schouten, et al., 2002 (default option)
@@ -44,8 +43,7 @@ bayspR_tex_analog<-function(raw,prior_mean,prior_std,search_tol,runname,varargin
 #in .AnLocs.
     
   #Deal with the input parameters and decide how to handle the input data
-  if(data=="area"){dats<-TEX86(raw,complete=complete,data=data)
-  } else if (data=="fa"){dats<-TEX86(raw,complete=complete,data=data)
+  if(data=="raw"){dats<-TEX86(raw,complete=complete)
   } else if (data=="tex"){dats<-raw}
   
   if(length(varargin)>2){stop("varargin accepts no more than two arguments")

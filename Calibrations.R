@@ -11,7 +11,11 @@ GlobalMartinezMAF<-alist(MBT5=,m=1/0.03,b=0.075/0.03,(MBT5*m)+b)
 GlobalDeJongeMAAT<-alist(MBT5=,m=31.45,b=-8.57,(MBT5*m)+b)
 GlobalDeJongepH<-alist(CBTp=,m=1.59,b=7.15,(CBTp*m)+b)
 
-Temperature<-list(Russell=AfricaRussellMAAT,Martinez=GlobalMartinezMAF,DeJonge=GlobalDeJongeMAAT)
+#Naafs et al., 2017
+GlobalNaafsMAAT<-alist(MBT5=,m=52.18,b=-23.05,(MBT5*m)+b)
+
+
+Temperature<-list(Russell=AfricaRussellMAAT,Martinez=GlobalMartinezMAF,DeJonge=GlobalDeJongeMAAT,Naafs=GlobalNaafsMAAT)
 
 pH<-list(Russell=AfricaRussellpH,DeJonge=GlobalDeJongepH)
 
@@ -19,11 +23,9 @@ Calibrations<-list(Temperature=Temperature,pH=pH)
 
 ## Aplication
 
-linearCalib<-function(raw,env,calibration,data="area",out="all",na.ignore=FALSE,coerce=FALSE,complete=TRUE){
-  if(data=="area"){fa<-FracA(raw,out=out,na.ignore=na.ignore,coerce=coerce)
-  } else if (data == "fa"){fa<-raw}
-  if(env=="Temperature"){prediction<-as.function(Calibrations[[env]][[calibration]])(MBT5(fa,data="fa",complete = complete,na.ignore=na.ignore))
-  } else if(env=="pH"){prediction<-as.function(Calibrations[[env]][[calibration]])(CBTp(fa,data="fa",complete = complete,na.ignore=na.ignore))
+linearCalib<-function(raw,env,calibration,out="all",na.ignore=FALSE,complete=TRUE){
+  if(env=="Temperature"){prediction<-as.function(Calibrations[[env]][[calibration]])(MBT5(raw,complete = complete,na.ignore=na.ignore))
+  } else if(env=="pH"){prediction<-as.function(Calibrations[[env]][[calibration]])(CBTp(raw,complete = complete,na.ignore=na.ignore))
   } else stop("Select one of the available environmental parameters: Temperature or pH")
   prediction
 }

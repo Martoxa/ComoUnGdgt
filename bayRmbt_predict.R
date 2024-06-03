@@ -1,4 +1,4 @@
-bayrmbt_predict<-function(raw,prior_mean,prior_std,Tmodel,Type,data="area",complete=TRUE,na.ignore=FALSE){
+bayrmbt_predict<-function(raw,prior_mean,prior_std,Tmodel,Type,data="raw",complete=TRUE,na.ignore=FALSE){
 
 # BAYMBT prediction model for MBT5Me measured in soils and peats.
 # Predicts Mean annual air temperature or mean temperatures above zero.
@@ -18,8 +18,7 @@ bayrmbt_predict<-function(raw,prior_mean,prior_std,Tmodel,Type,data="area",compl
 # "lake" = use the lake calibration
 #  
 # data: A string corresponding the type of data to run in the model.
-# "area" = Peak areas for each brGDGT (default option)
-# "fa" = Fractional abundance of each brGDGT
+# "raw" = Peak areas for each brGDGT or Fractional Abundances (default option)
 # "mbt5" = Calculated MBT'5Me values
   
 # complete: Determines how is MBT'5Me calculated
@@ -55,8 +54,7 @@ bayrmbt_predict<-function(raw,prior_mean,prior_std,Tmodel,Type,data="area",compl
 #  
 
   #adjust data type
-  if(data=="area"){mbt5me<-MBT5(raw,complete=complete,data=data, na.ignore = na.ignore)
-  } else if (data=="fa"){mbt5me<-MBT5(raw,complete=complete,data=data, na.ignore = na.ignore)
+  if(data=="raw"){mbt5me<-MBT5(raw,complete=complete, na.ignore = na.ignore)
   } else if (data=="mbt5"){mbt5me<-raw}
   #ensure vector
   if(is.vector(mbt5me) == FALSE){mbt5me<-as.vector(mbt5me)}
