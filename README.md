@@ -28,17 +28,24 @@ Three options for environmental reconstructions are integrated in the package (f
 # Example
 
 ## Install package
+
 library(devtools); # Make sure that the devtools library is loaded
+
 install_github("Martoxa/ComoUnGdgt");
 
 ## Load example file
+
 example<-read.csv(file("notebook/Data_GDGTs_example.csv");
 
 ## Indices
+
 exampleMBT<-MBT5(example);
+
 exampleCBT<-CBTp(example,complete=FALSE); #missing IIIc6 in example dataset. Warning of the modified formula is issued.
+
 exampleCBTfa<-CBTp(FracA(example,coerce=TRUE)); #Indices can also be calculated from fractional abundances. Fractional abundance calculation can also import missing variables as 0s. A warning is issued.
 
 ## Calibrations
+
 TempRussell<-linearCalib(example,env="Temperature",calibration = "Russell");
 
