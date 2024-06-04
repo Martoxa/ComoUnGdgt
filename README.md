@@ -24,3 +24,34 @@ The function FracA will take a dataset of peak areas with the correct format and
 ##Generate environmental reconstructions
 
 Three options for environmental reconstructions are integrated in the package (for v.0.1.0): BaySPR, BAYMBT, and linearCalib. BaySPR and BayMBT are just the application in R of the previously published models (https://github.com/jesstierney/BAYSPAR and https://github.com/jesstierney/BayMBT). On the other hand linearCalib has the linear equations to convert CBT' to pH, and MBT'5Me to temperature as published by DeJonge, 2014; Naafs, 2017; Russell, 2018; Martinez-Sosa, 2022 (as of v.0.1.0). Both the bayesian and linear calibrations are modified to take the dataset with peak areas or fractional abundances as input and directly output a reconstruction.
+
+# Example
+
+## Install package
+
+#Make sure that the devtools library is loaded
+
+library(devtools); 
+
+install_github("Martoxa/ComoUnGdgt");
+
+## Load example file
+
+example<-read.csv(file("notebook/Data_GDGTs_example.csv");
+
+## Indices
+
+exampleMBT<-MBT5(example);
+
+#missing IIIc6 in example dataset. Warning of the modified formula is issued.
+
+exampleCBT<-CBTp(example,complete=FALSE); 
+
+#Indices can also be calculated from fractional abundances. Fractional abundance calculation can also import missing variables as 0s. A warning is issued.
+
+exampleCBTfa<-CBTp(FracA(example,coerce=TRUE));
+
+## Calibrations
+
+TempRussell<-linearCalib(example,env="Temperature",calibration = "Russell");
+
