@@ -1,4 +1,4 @@
-#ComoUnGDGT
+# ComoUnGDGT
 
 Suite of functions to work, manipulate, and apply GDGTs for paleoclimate applications. The package is optimized to take GDGT data as HPLC-MS peak areas, but can handle also fractional abundances. While in principle it can handle concentration values, this is not recommended and should be avoided.
 
@@ -12,12 +12,12 @@ The package has three main functionalities:
     Generate fractional abundances from the data
     Generate environmental reconstructions directly from the peak areas/fractional abundances
 
-##Calculate Indices
+## Calculate Indices
 
 A range of the most common GDGT indices have been included in the package (MBT'5Me, CBT', BIT, TEX86). All calculations by default require the presence of all the structures in the original formulation of the index by default. The parameter 'complete' can be manually set to FALSE to override this, and the formula for the index will be modified to remove all missing compounds. A warning will be issued listing all the compounds removed from the formula. By default the function won't ignore NA values in the data, but this can be overritten by turning 'na.ignore' as TRUE, in this case, any NA values in the data will be turned to 0.
 
 
-##Generate fractional abundances
+## Generate fractional abundances
 
 The function FracA will take a dataset of peak areas with the correct format and it can calculate the fractional abundance of one or multiple groups of GDGTs. Supported groups are "br", "iso", "br_extended" (5/6 isomer and 7-methyl), "isoGMGTs", and "OHGDGTs". The function by default calculates the fractional abundance of each group independently, but it can also calculate the fractional abundance relative to the sum of all the selected GDGTs.
 
