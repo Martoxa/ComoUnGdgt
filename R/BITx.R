@@ -7,7 +7,7 @@
 #' @return The function returns the BIT value for each sample provided.
 #' @references Hopmans, E. C., Weijers, J. W., Schefuß, E., Herfort, L., Damsté, J. S. S., & Schouten, S. (2004). A novel proxy for terrestrial organic matter in sediments based on branched and isoprenoid tetraether lipids. Earth and Planetary Science Letters, 224(1-2), 107-116.
 
-BITx<-function(gdgt,complete=TRUE,out="all",na.ignore=FALSE){
+BITx<-function(gdgt,complete=TRUE,na.ignore=FALSE){
   if(na.ignore==TRUE){gdgt[is.na(gdgt)]<-0}
   formula<-"( gdgt$Ia + gdgt$IIa5 + gdgt$IIa6 + gdgt$IIIa5 + gdgt$IIIa6 )/( gdgt$Ia + gdgt$IIa5 + gdgt$IIa6 + gdgt$IIIa5 + gdgt$IIIa6 + gdgt$Cren )"
   if(complete==TRUE){if(NA %in% match(correctGs(formula),colnames(gdgt))){stop("Missing variables")}}
