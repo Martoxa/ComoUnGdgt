@@ -35,9 +35,7 @@ library(devtools);
 
 install_github("Martoxa/ComoUnGdgt");
 
-## Load example file
-
-example<-read.csv(file("notebook/Data_GDGTs_example.csv");
+example #subset of 100 samples from the dataset from Martinez-Sosa, 2023
 
 ## Indices
 
@@ -54,4 +52,6 @@ exampleCBTfa<-CBTp(FracA(example,coerce=TRUE));
 ## Calibrations
 
 TempRussell<-linearCalib(example,env="Temperature",calibration = "Russell");
+
+bayrmbt_predict(example[example$Type=="L",],10,10,Tmodel = "T0",Type = "lake")
 
