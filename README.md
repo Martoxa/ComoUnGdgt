@@ -8,9 +8,9 @@ brGDGTs: IIIa5, IIIa6, IIIa56, IIIa7, IIIb5, IIIb6, IIIc5, IIIc6, IIa5, IIa6, II
 
 The package has three main functionalities:
 
-    Calculate directly indices
-    Generate fractional abundances from the data
-    Generate environmental reconstructions directly from the peak areas/fractional abundances
+1) Calculate directly indices
+2) Generate fractional abundances from the data
+3) Generate environmental reconstructions directly from the peak areas/fractional abundances
 
 ## Calculate Indices
 
