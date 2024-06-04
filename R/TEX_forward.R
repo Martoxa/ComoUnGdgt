@@ -17,15 +17,11 @@ TEX_forward<-function(lat,lon,t,type="SST",mode="standard",tolerance=NA){
 
   if(type=="SST"){
     if(mode=="standard"){Params<-SST_param_std
-    } else if (mode=="analog"){
-      Params<-SST_param_ana
-      DataIn<-SST_DataIn
+    } else if (mode=="analog"){Params<-SST_param_ana;DataIn<-SST_DataIn
     } else stop("Calibration mode must be either 'standard' or 'analog'")
   } else if(type=="subT"){
-    if(mode=="standard"){
-      Params<-subT_param_std
-      Data_In<-subT_DataIn
-    } else if (mode=="analog"){Params<-subT_param_ana}
+    if(mode=="standard"){Params<-subT_param_std;Data_In<-subT_DataIn
+    } else if (mode=="analog"){Params<-subT_param_ana
     } else stop("Calibration mode must be either 'standard' or 'analog'")
   } else stop("Calibration type must be either 'SST' or 'subT'")
 
