@@ -62,11 +62,11 @@ bayspR_tex<-function(gdgt,lon,lat,prior_std,runname,varargin=1000,data="raw",com
 
   #Load data files needed for the analysis
   if(runname=="SST"){
-    Params<-readRDS(file="SST_param_std.rds")
-    Obs<-readRDS(file = "obsSST.rds")
+    Params<-SST_param_std
+    Obs<-obsSST
   } else if(runname=="subT"){
-    Params<-readRDS(file="SubT_param_std.rds")
-    Obs<-readRDS(file = "obssubT.rds")
+    Params<-subT_param_std
+    Obs<-obssubT
   }
 
   #Grid spacing is hard-coded here

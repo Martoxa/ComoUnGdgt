@@ -41,13 +41,13 @@ bayrmbt_predict<-function(gdgt,prior_mean,prior_std,Tmodel,Type,data="raw",compl
   if(is.vector(mbt5me) == FALSE){mbt5me<-as.vector(mbt5me)}
   #load appropriate model
   if(Type == "soil" & Tmodel == "T"){
-    params<-readRDS("baymbt_params_soil.RDS")
+    params<-baymbt_params_soil
   } else if(Type == "soil" & Tmodel == "T0"){
-    params<-readRDS("baymbt0_params_soil.RDS")
+    params<-baymbt0_params_soil
   } else if(Type == "lake" & Tmodel == "T"){
-    params<-readRDS("baymbt_params_lake.RDS")
+    params<-baymbt_params_lake
   } else if(Type == "lake" & Tmodel == "T0"){
-    params<-readRDS("baymbt0_params_lake.RDS")
+    params<-baymbt0_params_lake
   } else print("Type or TModel not recognized")
 
   b_draws_final<-params[[1]]

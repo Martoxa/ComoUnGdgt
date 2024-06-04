@@ -58,11 +58,11 @@ bayspR_tex_analog<-function(gdgt,prior_mean,prior_std,search_tol,runname,varargi
 
   #Load data files needed for the analysis
   if(runname=="SST"){
-    Params<-readRDS(file="SST_param_ana.rds")
-    DataIn<-readRDS(file = "SST_DataIn.rds")
+    Params<-SST_param_ana
+    DataIn<-SST_DataIn
   } else if(runname=="subT"){
-    Params<-readRDS(file="SubT_param_ana.rds")
-    DataIn<-readRDS(file = "subT_DataIn.rds")
+    Params<-subT_param_ana
+    DataIn<-subT_DataIn
   }
 
   #Thin the samples to the right number
