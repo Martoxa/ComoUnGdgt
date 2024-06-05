@@ -15,15 +15,15 @@
 #' predictions, or the whole ensemble as well. If left empty, then 1000 draws
 #' are used and the ensemble of predictions is not saved. If only one argument,
 #' it is the number of draws (cannot exceed 15000), and the ensemble is not
-#' saved. Nothe that samples are thinned to use the full span of the ensemble.
+#' saved. Note that samples are thinned to use the full span of the ensemble.
 #' If two arguments, the first gives the number of draws, while the second is
 #' an indicator: 0 (default) or 1, will save the 5th/50th/95th percentiles
 #' only, or the full ensemble, respectively. In all the above, the total
 #' number of ensemble members is capped by the number of draws in the model
 #' output.
 #' @param complete Determines how is TEX86 calculated. TRUE calculates exactly
-#' as per Schouten, et al., 2002 (default). FALSE ommits missing compounds. A
-#' warning is generated and the ommitted compounds are shown.
+#' as per Schouten, et al., 2002 (default). FALSE omits missing compounds. A
+#' warning is generated and the omitted compounds are shown.
 #' prior mean is set as the mean over all instrumental SST observations
 #' within max_dist (distance is chordal), or the closest min_num points:
 #' whichever has the larger number of observations.

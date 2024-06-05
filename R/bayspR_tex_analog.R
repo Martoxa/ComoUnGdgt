@@ -1,8 +1,8 @@
 #' BaySPR TEX86 (Analogue)
 #'
 #' The assumption in this case is that oceanographic conditions are sufficiently dissimilar to the modern configuration (e.g. due to tectonic changes) so as to preclude the use of the regression parameters that correspond to the current location of the study site (see Tierney and Tingley, 2014, GCA for details).
-#' @param gdgt A matrix of HPLC-MS peak area values (15xN) or (Nx15), or a
-#' scalar vector of MBT'5Me values (1xN) or (Nx1).
+#' @param gdgt A matrix of HPLC-MS peak area values (6xN) or (Nx6), or a
+#' scalar vector of TEX86 values (1xN) or (Nx1).
 #' @param prior_mean Prior mean on temperature. Assumed same for all.
 #' @param prior_std Prior standard deviation for temperature. Assumed same for all.
 #' @param search_tol Tolerance for finding analog locations. Comparison is between the mean of dats and the mean TEX value within each large gridcell.
@@ -12,7 +12,7 @@
 #' predictions, or the whole ensemble as well. If left empty, then 1000 draws
 #' are used and the ensemble of predictions is not saved. If only one argument,
 #' it is the number of draws (cannot exceed 15000), and the ensemble is not
-#' saved. Nothe that samples are thinned to use the full span of the ensemble.
+#' saved. Note that samples are thinned to use the full span of the ensemble.
 #' If two arguments, the first gives the number of draws, while the second is
 #' an indicator: 0 (default) or 1, will save the 5th/50th/95th percentiles
 #' only, or the full ensemble, respectively. In all the above, the total
@@ -22,8 +22,8 @@
 #' Options are "raw" or "tex", which use peak areas or fractional abundances,
 #' or TEX86 values, respectively.
 #' @param complete Determines how is TEX86 calculated. TRUE calculates exactly
-#' as per Schouten, et al., 2002 (default). FALSE ommits missing compounds. A
-#' warning is generated and the ommitted compounds are shown.
+#' as per Schouten, et al., 2002 (default). FALSE omits missing compounds. A
+#' warning is generated and the omitted compounds are shown.
 #' prior mean is set as the mean over all instrumental SST observations
 #' within max_dist (distance is chordal), or the closest min_num points:
 #' whichever has the larger number of observations.
@@ -36,7 +36,7 @@
 #' lat] pairs
 #' @return PriorMean - The prior mean as calculated above.
 #' @return PriorStd  - The prior std as input.
-#' @return PredsEns  - Nd by No. analog locatioins by Nsamps array of predictions. Only included if
+#' @return PredsEns  - Nd by No. analog locations by Nsamps array of predictions. Only included if
 #' ens_sel==1. Note that the second dimension corresponds to the locations in .AnLocs.
 #' @references Tierney, J. E., & Tingley, M. P. (2014). A Bayesian, spatially-varying calibration model for the TEX86 proxy. Geochimica et Cosmochimica Acta, 127, 83-106.
 
