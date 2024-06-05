@@ -14,7 +14,33 @@ The package has three main functionalities:
 
 ## Calculate Indices
 
-A range of the most common GDGT indices have been included in the package (MBT'5Me, CBT', BIT, TEX86). All calculations by default require the presence of all the structures in the original formulation of the index by default. The parameter 'complete' can be manually set to FALSE to override this, and the formula for the index will be modified to remove all missing compounds. A warning will be issued listing all the compounds removed from the formula. By default the function won't ignore NA values in the data, but this can be overritten by turning 'na.ignore' as TRUE, in this case, any NA values in the data will be turned to 0.
+A range of the most common GDGT indices have been included in the package (MBT'5Me, CBT', BIT, TEX86, etc.). All calculations by default require the presence of all the structures in the original formulation of the index by default. The parameter 'complete' can be manually set to FALSE to override this, and the formula for the index will be modified to remove all missing compounds. A warning will be issued listing all the compounds removed from the formula. By default the function won't ignore NA values in the data, but this can be overritten by turning 'na.ignore' as TRUE, in this case, any NA values in the data will be turned to 0.
+
+### List of currently supported indices
+
+-BITx: BIT index
+-CBTp: CBT'
+-DegCyc: Degrees of Cylisation (DC)
+-DegCycp: DC'
+-IBT: Isomerization of Branchet tetraethers
+-IsoRat: Isomer Ratio 6-methyl
+-MBT5: MBT'5Me
+-MBT6: MBT'6Me
+-MetIdx: Methane Index
+-pGDGT0: %GDGT0
+-RinIdx: Ring Index
+-RinTet: #ringstetra
+-TEX86: TEX86
+
+BayMBT:
+-bayrmbt_forward
+-bayrmbt_model
+-bayrmbt_predict
+
+BaySPAR
+-bayspR_tex
+-bayspR_tex_analog
+-TEX_forward
 
 
 ## Generate fractional abundances
