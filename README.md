@@ -55,31 +55,28 @@ Three options for environmental reconstructions are integrated in the package (f
 
 ## Install package
 
-#Make sure that the devtools library is loaded
+```
+library(devtools) #Make sure that the devtools library is loaded 
 
-library(devtools); 
-
-install_github("Martoxa/ComoUnGdgt");
+install_github("Martoxa/ComoUnGdgt")
 
 example #subset of 100 samples from the dataset from Martinez-Sosa, 2023
-
+```
 ## Indices
-
+```
 exampleMBT<-MBT5(example);
 
-#missing IIIc6 in example dataset. Warning of the modified formula is issued.
+exampleCBT<-CBTp(example,complete=FALSE) #missing IIIc6 in example dataset. Warning of the modified formula is issued.
 
-exampleCBT<-CBTp(example,complete=FALSE); 
+exampleCBTfa<-CBTp(FracA(example,coerce=TRUE)) #Indices can also be calculated from fractional abundances. Fractional abundance calculation can also import missing variables as 0s. A warning is issued.
 
-#Indices can also be calculated from fractional abundances. Fractional abundance calculation can also import missing variables as 0s. A warning is issued.
-
-exampleCBTfa<-CBTp(FracA(example,coerce=TRUE));
-
+```
 ## Calibrations
-
+```
 TempRussell<-linearCalib(example,env="Temperature",calibration = "Russell");
 
 bayrmbt_predict(example[example$Type=="L",],10,10,Tmodel = "T0",Type = "lake")
 
 out<-bayspR_tex(example[c(63,71),],example[c(63,71),]$Longitude,example[c(63,71),]$Latitude,6,runname = "SST") #some merine samples as example
 out
+```
