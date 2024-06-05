@@ -29,13 +29,13 @@ bayrmbt_forward<-function(t,Tmodel,Type){
   if(is.vector(t) == FALSE){t<-as.vector(t)}
   #load appropriate model
   if(Type == "soil" & Tmodel == "T"){
-    params<-readRDS("baymbt_params_soil.RDS")
+    params<-baymbt_params_soil
   } else if(Type == "soil" & Tmodel == "T0"){
-    params<-readRDS("baymbt0_params_soil.RDS")
+    params<-baymbt0_params_soil
   } else if(Type == "lake" & Tmodel == "T"){
-    params<-readRDS("baymbt_params_lake.RDS")
+    params<-baymbt_params_lake
   } else if(Type == "lake" & Tmodel == "T0"){
-    params<-readRDS("baymbt0_params_lake.RDS")
+    params<-baymbt0_params_lake
   } else print("Type or TModel not recognized")
 
   b_draws_final<-params[[1]]

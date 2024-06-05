@@ -1,8 +1,8 @@
 #' BaySPR TEX86
 #'
 #' Predict T from TEX86 using the standard model. The assumption in this case is that oceanographic conditions are sufficiently similar to today so that it is reasonable to use the spatial distribution of regression parameters as fitted from the core tops.
-#' @param gdgt A matrix of HPLC-MS peak area values (15xN) or (Nx15), or a
-#' scalar vector of MBT'5Me values (1xN) or (Nx1).
+#' @param gdgt A matrix of HPLC-MS peak area values (6xN) or (Nx6), or a
+#' scalar vector of TEX86 values (1xN) or (Nx1).
 #' @param data A string corresponding the type of data to run in the model.
 #' Options are "raw" or "tex", which use peak areas or fractional abundances,
 #' or TEX86 values, respectively.
@@ -109,8 +109,8 @@ bayspR_tex<-function(gdgt,lon,lat,prior_std,runname,varargin=1000,data="raw",com
   num_below_dist<-which(sorted_dists_prior == tail(c(sorted_dists_prior)[c(sorted_dists_prior)<max_dist],n=1),arr.ind = FALSE)
 
   #If this is larger than the min number, use it to select them:
-  if(num_below_dist>min_num){prior_mean<-mean(Obs$st.obs.ave.vec[inds_dists_prior[seq(from=1,to=num_below_dist,by=1)]])
-  } else {prior_mean<-mean(Obs$st.obs.ave.vec[inds_dists_prior[seq(from=1,to=min_num,by=1)]])} #else use the min_num
+  if(num_below_dist>min_num){prior_mean<-mean(Obs$st.obs.ave.vec[inds_dists_prior[seq(from=1,to=num_below_dist,by=1)]],na.rm = TRUE)
+  } else {prior_mean<-mean(Obs$st.obs.ave.vec[inds_dists_prior[seq(from=1,to=min_num,by=1)]],na.rm = TRUE)} #else use the min_num
   Output_PriorMean<-prior_mean
 
   #Figure out the alpha and beta series to draw from.
