@@ -33,14 +33,14 @@ A range of the most common GDGT indices have been included in the package (MBT'5
 13) TEX86: TEX86
 
 BayMBT:
-a. bayrmbt_forward
-b. bayrmbt_model
-c. bayrmbt_predict
+1) bayrmbt_forward
+2) bayrmbt_model
+3) bayrmbt_predict
 
 BaySPAR
-a. bayspR_tex
-b. bayspR_tex_analog
-c. TEX_forward
+1) bayspR_tex
+2) bayspR_tex_analog
+3) TEX_forward
 
 
 ## Generate fractional abundances
