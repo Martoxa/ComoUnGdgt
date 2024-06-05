@@ -18,29 +18,29 @@ A range of the most common GDGT indices have been included in the package (MBT'5
 
 ### List of currently supported indices
 
--BITx: BIT index
--CBTp: CBT'
--DegCyc: Degrees of Cylisation (DC)
--DegCycp: DC'
--IBT: Isomerization of Branchet tetraethers
--IsoRat: Isomer Ratio 6-methyl
--MBT5: MBT'5Me
--MBT6: MBT'6Me
--MetIdx: Methane Index
--pGDGT0: %GDGT0
--RinIdx: Ring Index
--RinTet: #ringstetra
--TEX86: TEX86
+1) BITx: BIT index
+2) CBTp: CBT'
+3) DegCyc: Degrees of Cylisation (DC)
+4) DegCycp: DC'
+5) IBT: Isomerization of Branchet tetraethers
+6) IsoRat: Isomer Ratio 6-methyl
+7) MBT5: MBT'5Me
+8) MBT6: MBT'6Me
+9) MetIdx: Methane Index
+10) pGDGT0: %GDGT0
+11) RinIdx: Ring Index
+12) RinTet: #ringstetra
+13) TEX86: TEX86
 
 BayMBT:
--bayrmbt_forward
--bayrmbt_model
--bayrmbt_predict
+a) bayrmbt_forward
+b) bayrmbt_model
+c) bayrmbt_predict
 
 BaySPAR
--bayspR_tex
--bayspR_tex_analog
--TEX_forward
+a) bayspR_tex
+b) bayspR_tex_analog
+c) TEX_forward
 
 
 ## Generate fractional abundances
