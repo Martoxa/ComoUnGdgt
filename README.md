@@ -1,4 +1,4 @@
-# ComoUnGDGT
+# ComoUnGdgt
 
 Suite of functions to work, manipulate, and apply GDGTs for paleoclimate applications. The package is optimized to take GDGT data as HPLC-MS peak areas, but can handle also fractional abundances. While in principle it can handle concentration values, this is not recommended and should be avoided.
 
