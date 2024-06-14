@@ -4,7 +4,12 @@ Suite of functions to work, manipulate, and apply GDGTs for paleoclimate applica
 
 For this package it is important to have the source data with the appropriate format (samples in rows, variables in columns), and GDGT variables named as follow (order is irrelevant).
 
-brGDGTs: IIIa5, IIIa6, IIIa56, IIIa7, IIIb5, IIIb6, IIIc5, IIIc6, IIa5, IIa6, IIa7, IIb5, IIb6, IIb7 IIc5, IIc6, Ia, Ib, Ic isoGDGTs: GDGT0, GDGT1, GDGT2, GDGT3, Cren, Creni (Cren') isoGMGTs: GMGT0, GMGT1, GMGT2, GMGT3, GMGT4 OHGDGTs: GDGTX0, GDGTX1, GDGTX2, GDGTX3 (GMGTs and OHGDGTs are recognized but not indices are available yet)
+1) brGDGTs: IIIa5, IIIa6, IIIa56, IIIa7, IIIb5, IIIb6, IIIc5, IIIc6, IIa5, IIa6, IIa7, IIb5, IIb6, IIb7 IIc5, IIc6, Ia, Ib, Ic
+2) isoGDGTs: GDGT0, GDGT1, GDGT2, GDGT3, Cren, Creni (Cren')
+3) isoGMGTs: GMGT0, GMGT1, GMGT2, GMGT3, GMGT4
+4) OHGDGTs: GDGTX0, GDGTX1, GDGTX2, GDGTX3
+
+(GMGTs and OHGDGTs are recognized but not indices are available yet)
 
 The package has three main functionalities:
 
@@ -62,6 +67,11 @@ install_github("Martoxa/ComoUnGdgt")
 
 example #subset of 100 samples from the dataset from Martinez-Sosa, 2023
 ```
+## Fractional abundances
+```
+FAexample<-FracA(example,group = c("iso","br"),how="each") #calculates the fractional abundance of br and iso GDGTs separately (default)
+```
+
 ## Indices
 ```
 exampleMBT<-MBT5(example);
