@@ -52,7 +52,7 @@ BaySPAR
 
 The function FracA will take a dataset of peak areas with the correct format and it can calculate the fractional abundance of one or multiple groups of GDGTs. Supported groups are "br", "iso", "br_extended" (5/6 isomer and 7-methyl), "isoGMGTs", and "OHGDGTs". The function by default calculates the fractional abundance of each group independently, but it can also calculate the fractional abundance relative to the sum of all the selected GDGTs.
 
-##Generate environmental reconstructions
+## Generate environmental reconstructions
 
 Three options for environmental reconstructions are integrated in the package (for v.0.1.0): BaySPR, BAYMBT, and linearCalib. BaySPR and BayMBT are just the application in R of the previously published models (https://github.com/jesstierney/BAYSPAR and https://github.com/jesstierney/BayMBT). On the other hand linearCalib has the linear equations to convert CBT' to pH, and MBT'5Me to temperature as published by DeJonge, 2014; Naafs, 2017; Russell, 2018; Martinez-Sosa, 2022 (as of v.0.1.0). Both the bayesian and linear calibrations are modified to take the dataset with peak areas or fractional abundances as input and directly output a reconstruction.
 
