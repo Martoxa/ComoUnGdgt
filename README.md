@@ -87,6 +87,6 @@ TempRussell<-linearCalib(example,env="Temperature",calibration = "Russell");
 
 bayrmbt_predict(example[example$Type=="L",],10,10,Tmodel = "T0",Type = "lake")
 
-out<-bayspR_tex(example[c(63,71),],example[c(63,71),]$Longitude,example[c(63,71),]$Latitude,6,runname = "SST") #some merine samples as example
+out<-bayspR_tex(example[c(63,71),],example[c(63,71),]$Longitude,example[c(63,71),]$Latitude,6,runname = "SST") #some marine samples as example
 out
 ```
