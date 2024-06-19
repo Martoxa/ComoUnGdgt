@@ -4,7 +4,14 @@
 \alias{linearCalib}
 \title{Application of linear calibrations for GDGTs}
 \usage{
-linearCalib(gdgt, env, calibration, complete = TRUE, na.ignore = FALSE)
+linearCalib(
+  gdgt,
+  env,
+  calibration,
+  data = "raw",
+  complete = TRUE,
+  na.ignore = FALSE
+)
 }
 \arguments{
 \item{gdgt}{Data frame with the peak areas or fractional abundances of GDGTs. Each row should correspond to a sample and each column to each GDGT with the appropriated name format.}
@@ -12,6 +19,8 @@ linearCalib(gdgt, env, calibration, complete = TRUE, na.ignore = FALSE)
 \item{env}{Selection of the environmental parameter to reconstruct. Options currently are "Temperature" and "pH"}
 
 \item{calibration}{Selection of the forward model to be used. Currently options are "Russell" (Russell, 2018), "Martinez" (Martinez-Sosa, 2022), "DeJonge" (De Jonge, 2014), and "Naafs" (Naafs, 2017) for temperature; "Russell" (Russell, 2018), and "DeJonge" (De Jonge, 2014) for pH.}
+
+\item{data}{Data is presented as either peak areas ("raw") or a vector with the corresponding index values for the calibration ("index").}
 
 \item{complete}{Logic variable. Indicates whether all brGDGTs in the original formulation are present in the data frame (TRUE, default value) or if some are missing. If TRUE the function will not proceed if any variable is missing, it will produce an error. If FALSE, the function will remove the missing variables from the equation.}
 

@@ -4,7 +4,7 @@
 \alias{BITx}
 \title{BIT index}
 \usage{
-BITx(gdgt, complete = TRUE, out = "all", na.ignore = FALSE)
+BITx(gdgt, complete = TRUE, na.ignore = FALSE)
 }
 \arguments{
 \item{gdgt}{Data frame with the peak areas or fractional abundances of GDGTs. Each row should correspond to a sample and each column to each GDGT with the appropriated name format.}
