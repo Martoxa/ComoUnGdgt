@@ -9,7 +9,7 @@
 
 IsoRat<-function(gdgt,complete=TRUE,na.ignore=FALSE){
   if(na.ignore==TRUE){gdgt[is.na(gdgt)]<-0}
-  formula<-"( gdgt$IIa6 + gdgt$IIb6 + gdgt$IIc6 + gdgt$IIIa6 + gdgt$IIIa6 + gdgt$IIIb6 + gdgt$IIIc6 )/( gdgt$IIa5 + gdgt$IIb5 + gdgt$IIc5 + gdgt$IIIa5 + gdgt$IIIb5 + gdgt$IIIc5 + gdgt$IIa6 + gdgt$IIb6 + gdgt$IIc6 + gdgt$IIIa6 + gdgt$IIIa6 + gdgt$IIIb6 + gdgt$IIIc6 )"
+  formula<-"( gdgt$IIa6 + gdgt$IIb6 + gdgt$IIc6 + gdgt$IIIa6 + gdgt$IIIb6 + gdgt$IIIc6 )/( gdgt$IIa5 + gdgt$IIb5 + gdgt$IIc5 + gdgt$IIIa5 + gdgt$IIIb5 + gdgt$IIIc5 + gdgt$IIa6 + gdgt$IIb6 + gdgt$IIc6 + gdgt$IIIa6 + gdgt$IIIa6 + gdgt$IIIb6 + gdgt$IIIc6 )"
   if(complete==TRUE){if(NA %in% match(correctGs(formula),colnames(gdgt))){stop("Missing variables")}}
   if(complete==FALSE){formula<-partialEq(gdgt,formula)}
   eval(parse(text = formula))
