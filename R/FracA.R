@@ -2,7 +2,7 @@
 #'
 #' Calculates the fractional abundance of the selected GDGTs presented as peak areas.
 #' @param gdgt Data frame with the peak areas of GDGTs. Each row should correspond to a sample and each column to each GDGT with the appropriated name format.
-#' @param group GDGTs to be transformed into fractional abundances. Options are "iso" (isoGDGTs), "br" (brGDGTs), "br_extended" (5/6 isomer and 7-methyl), "isoGMGTs", or "OHGDGTs".
+#' @param group GDGTs to be transformed into fractional abundances, can be a character string value or a vector. Options are "iso" (isoGDGTs), "br" (brGDGTs), "br_extended" (5/6 isomer and 7-methyl), "isoGMGTs", or "OHGDGTs".
 #' @param coerce Logic variable. If FALSE (default) the function will use the provided data. If TRUE, the function will incorporate missing GDGTs from each group as 0s for the calculations.
 #' @param how Select how the fractional abundance will be calculated. Options are "each" (default), which calculates the fractional abundance of each group independently; and "all", which calculates the fractional abundance of each GDGT over the total sum of selected GDGTs.
 #' @param na.ignore Logic variable. If FALSE (default) the function will turn any NA values into 0 for the calculations.
