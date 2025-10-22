@@ -1,0 +1,23 @@
+Package: ComoUnGDGT
+Title: Suite of functions useful for importing, manipulating, and predicting environmental parameters from GDGTs
+Version: 0.0.1.0
+Author: Pablo Martínez-Sosa, Jonathan Raberg, Jessica Tierney
+Maintainer: Pablo Martínez-Sosa <pablo.martinez_sosa@sorbonne-universite.fr>
+Description: What the package does (one paragraph).
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Imports:
+    dplyr,
+    graphics,
+    ks,
+    magrittr,
+    MASS,
+    Rlab,
+    rlang,
+    stringr,
+    tidyr,
+    tidyselect,
+    utils
