@@ -75,7 +75,7 @@ library(devtools) #Make sure that the devtools library is loaded
 
 options(timeout=400) #The package is a little heavy currently. Just making sure it doesn't time out.
 
-install_github("Martoxa/ComoUnGdgt")
+install_github("Martoxa/ComoUnGDGT")
 
 example #subset of 100 samples from the dataset from Martinez-Sosa, 2023
 ```
